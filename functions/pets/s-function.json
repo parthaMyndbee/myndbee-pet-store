@@ -1,0 +1,73 @@
+{
+    "name": "pets",
+    "runtime": "nodejs4.3",
+    "description": "Serverless Lambda function for project: myndbee-pet-store",
+    "customName": false,
+    "customRole": false,
+    "handler": "handler.handler",
+    "timeout": 6,
+    "memorySize": 1024,
+    "authorizer": {},
+    "custom": {
+        "excludePatterns": []
+    },
+    "endpoints": [{
+        "path": "pets",
+        "method": "GET",
+        "type": "AWS",
+        "authorizationType": "COGNITO_USER_POOLS",
+        "authorizerId": "3sw17y",
+        "apiKeyRequired": false,
+        "requestParameters": {},
+        "requestTemplates": {
+            "application/json": ""
+        },
+        "responses": {
+            "default": {
+                "statusCode": "200",
+                "responseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": "'*'"
+                },
+                "responseModels": {
+                    "application/json;charset=UTF-8": "Empty"
+                },
+                "responseTemplates": {
+                    "application/json": ""
+                }
+            }
+        }
+    }, {
+        "path": "pets",
+        "method": "OPTIONS",
+        "type": "MOCK",
+        "authorizationType": "none",
+        "apiKeyRequired": false,
+        "requestParameters": {},
+        "requestTemplates": {
+            "application/json": "{\"statusCode\": 200}"
+        },
+        "responses": {
+            "200": {
+                "statusCode": "200",
+                "responseParameters": {
+                    "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                    "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                    "method.response.header.Access-Control-Allow-Origin": "'*'"
+                },
+                "responseTemplates": {
+                    "application/json": null
+                }
+            }
+        }
+    }],
+    "events": [],
+    "environment": {
+        "SERVERLESS_PROJECT": "${project}",
+        "SERVERLESS_STAGE": "${stage}",
+        "SERVERLESS_REGION": "${region}"
+    },
+    "vpc": {
+        "securityGroupIds": ["sg-5d76b727"],
+        "subnetIds": ["subnet-eb5f5dc1"]
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "myndbee-pet-store-sls",
+  "version": "0.0.1",
+  "description": "A secured serverless project for myndbee pet store",
+  "author": "partha@myndbee.com",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "dependencies": {}
+}
