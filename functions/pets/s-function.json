@@ -15,12 +15,11 @@
         "path": "pets",
         "method": "GET",
         "type": "AWS",
-        "authorizationType": "COGNITO_USER_POOLS",
-        "authorizerId": "3sw17y",
+        "authorizationType": "AWS_IAM",
         "apiKeyRequired": false,
         "requestParameters": {},
         "requestTemplates": {
-            "application/json": ""
+            "application/json": "{ \"context\" : { #foreach($key in $context.identity.keySet()) \"$key\" : \"$util.escapeJavaScript($context.identity.get($key))\" #if($foreach.hasNext),#end #end } }"
         },
         "responses": {
             "default": {
